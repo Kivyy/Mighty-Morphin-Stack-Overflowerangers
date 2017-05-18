@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <!--
+  <head>
+    <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
+    -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <!--
     application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+    -->
+    <link rel="stylesheet" href="/css/application.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <div id="title">
+        <a href="/"><h1>Mighty Morphin Stack Overfloweranger</h1></a>
+      </div>
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
-
-  <title></title>
-</head>
-<body>
-
-
-  <%= yield %>
-</body>
+      <div id="header-links">
+        <% if session[:user_id] %>
+        <ul>
+          <li><a href="/users/:id">Profile</a></li>
+          <li><a href="/users/logout">Logout</a></li>
+        </ul>
+        <% else %>
+        <ul>
+          <li><a href="/users/new">Register</a></li>
+          <li><a href="/users/login">Login</a></li>
+        </ul>
+        <% end %>
+      </div>
+    </header>
+    <%= yield %>
+  </body>
 </html>
