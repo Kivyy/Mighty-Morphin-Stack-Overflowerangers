@@ -4,3 +4,8 @@
       <p><%= question.questioner.username %></p>
   </ul>
 <% end %>
+
+
+<% if logged_in? %>
+  <a href='/questions/new'>Post a question!</a>
+<%end%>
