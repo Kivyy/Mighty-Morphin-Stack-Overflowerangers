@@ -1,0 +1,15 @@
+<h1> Welcome to your profile! </h1>
+
+<h3>These are all the questions you have posted</h3>
+<ul>
+  <% @user.questions.each do |question| %>
+    <li><%= question.title %> - <%= question.body %> </li>
+  <%end%>
+</ul>
+
+<h3>These are all the answers you have posted</h3>
+<ul>
+  <% @user.answers.each do |answer| %>
+    <li><%= answer %> </li>
+  <%end%>
+</ul>
