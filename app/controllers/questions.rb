@@ -1,9 +1,14 @@
-get '/questions/new' do 
+get '/questions' do
+  @questions = Question.all
+  erb :"homepage/index"
+end
+
+get '/questions/new' do
 	redirect '/' unless session[:user_id]
 	erb :'questions/_question_form'
 end
 
-post '/questions/:id' do 
+post '/questions/:id' do
 	@question = Question.new(title: params[:title], body: [params[:body]], questioner: current_user.id)
 
 	if @question.save
