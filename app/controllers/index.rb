@@ -1,3 +1,3 @@
 get '/' do
-	"hey"
+	redirect '/question'
 end
