@@ -3,10 +3,8 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  @user = User.find_by(id: params[:id])
-  @question = Question.find_by(user_id: params[:question_id])
-
-  erb :'/users/show'
+  @user = User.find(params[:id])
+	erb :'/users/show'
 end
 
 post '/users' do
@@ -18,3 +16,4 @@ post '/users' do
     @errors = user.errors.full_messages
     erb :'users/new'
   end
+
