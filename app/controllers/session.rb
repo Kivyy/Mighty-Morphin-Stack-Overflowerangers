@@ -14,6 +14,6 @@ post '/login' do
 end
 
 get '/logout' do
-  session.delete(:user_id)
+  session.clear
   redirect '/'
 end

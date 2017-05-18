@@ -16,4 +16,4 @@ post '/users' do
     @errors = user.errors.full_messages
     erb :'users/new'
   end
-
+end
