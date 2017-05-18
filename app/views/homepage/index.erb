@@ -1,5 +1,6 @@
 <% @questions.each do |question|%>
   <ul>
-    <li><%= question.title %> </li>
+    <a href="/questions/<%= question.id %>"><li><%= question.title %></li></a>
+      <p><%= question.questioner.username %></p>
   </ul>
 <% end %>
