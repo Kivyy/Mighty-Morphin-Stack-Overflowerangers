@@ -2,6 +2,14 @@ body {
 	background-color: #E8EBF7;
 }
 
+h1, h2, h3 {
+	font-family: 'Teko', sans-serif;
+}
+
+p, ul, li, a, label {
+	font-family: 'Montserrat', sans-serif;
+}
+
 #layout-container {
 	margin: 0 10%;
 }
