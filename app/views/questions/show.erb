@@ -60,12 +60,12 @@
         <%= ans_comment.body %>
         <h2><%= vote_calculator(ans_comment) %></h2>
         <form id="upvote-question-form" method="post" action="/votes">
-          <input type="hidden" name="answer" value="<%= ans_comment.id %>" >
+          <input type="hidden" name="answer_comment" value="<%= ans_comment.id %>" >
           <input type="hidden" name="value" value="1" />
           <input type="submit" name="upvote" value="Upvote" />
         </form>
         <form id="downvote-question-form" method="post" action="/votes">
-          <input type="hidden" name="answer" value="<%= ans_comment.id %>" >
+          <input type="hidden" name="answer_comment" value="<%= ans_comment.id %>" >
           <input type="hidden" name="value" value="-1" />
           <input type="submit" name="downvote" value="Downvote" />
         </form>

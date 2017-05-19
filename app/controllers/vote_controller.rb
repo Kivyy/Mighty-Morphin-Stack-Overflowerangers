@@ -32,6 +32,20 @@ post '/votes' do
         old_vote.destroy
       end
       new_vote.save
+    elsif params[:answer_comment]
+
+      comment = Comment.find(params["answer_comment"].to_i)
+      answer = Answer.find(comment.commentable_id)
+      question = answer.question
+      new_vote = comment.votes.new(value: params["value"].to_i, voter_id: current_user.id)
+      new_voter = new_vote.voter
+      old_vote = Vote.find_by(voter: new_voter, voteable_type: new_vote.voteable_type, voteable_id: new_vote.voteable_id)
+
+      if old_vote
+        old_vote.destroy
+      end
+      new_vote.save
+
     end
 
   else
