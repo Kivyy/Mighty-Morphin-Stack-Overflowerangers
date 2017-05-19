@@ -6,12 +6,12 @@
 	</ul>
 	<% end %>
 </div>
+<% if logged_in? %>
 <div class="question-section">
 	<div class="question-wrapper">
-		<% if logged_in? %>
 		<div id="post-question">
 			<a href='/questions/new'>Post a question!</a>
 		</div>
-		<%end%>
 	</div>
 </div>
+<%end%>
