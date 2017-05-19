@@ -1,5 +1,16 @@
 <div class="question-title-section">
   <h1>Question: <%= @question.title %></h1>
+  <h2><%= @question_votes %></h2>
+  <form id="upvote-question-form" method="post" action="/votes">
+    <input type="hidden" name="question" value="<%= @question.id %>" >
+    <input type="hidden" name="value" value="1" />
+    <input type="submit" name="upvote" value="Upvote" />
+  </form>
+  <form id="downvote-question-form" method="post" action="/votes">
+    <input type="hidden" name="question" value="<%= @question.id %>" >
+    <input type="hidden" name="value" value="-1" />
+    <input type="submit" name="downvote" value="Downvote" />
+  </form>
   <h4>Comments for the questions</h4>
   <%@comments.each do |comment|%>
   <p> <%= comment.body %></p>

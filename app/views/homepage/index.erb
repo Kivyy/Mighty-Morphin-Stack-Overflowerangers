@@ -2,6 +2,7 @@
 	<% @questions.each do |question|%>
 	<ul>
 		<a href="/questions/<%= question.id %>"><li><%= question.title %></li></a>
+		<p>Answers: <%= question.answers.count %></p>
 		<p><%= question.questioner.username %></p>
 	</ul>
 	<% end %>
