@@ -1,6 +1,6 @@
 <div class="question-title-section">
   <h1>Question: <%= @question.title %></h1>
-  <h2><%= @question_votes %></h2>
+  <h2><%= vote_calculator(@question) %></h2>
   <form id="upvote-question-form" method="post" action="/votes">
     <input type="hidden" name="question" value="<%= @question.id %>" >
     <input type="hidden" name="value" value="1" />
@@ -14,6 +14,17 @@
   <h4>Comments for the questions</h4>
   <%@comments.each do |comment|%>
   <p> <%= comment.body %></p>
+  <h2><%= vote_calculator(comment) %></h2>
+  <form id="upvote-question-comment-form" method="post" action="/votes">
+    <input type="hidden" name="comment" value="<%= comment.id %>" >
+    <input type="hidden" name="value" value="1" />
+    <input type="submit" name="upvote" value="Upvote" />
+  </form>
+  <form id="downvote-question-comment-form" method="post" action="/votes">
+    <input type="hidden" name="comment" value="<%= comment.id %>" >
+    <input type="hidden" name="value" value="-1" />
+    <input type="submit" name="downvote" value="Downvote" />
+  </form>
   <%end%>
 
   <% if logged_in? %>
@@ -31,11 +42,33 @@
 
 <div class="answer-title-section">
   <h1>Answers</h1>
-  <h4>Comments for the answers</h4>
   <% @answers.each do |answer| %>
     <p> <%= answer.response %> - <%= answer.answerer.username %> </p>
+    <h2><%= vote_calculator(answer) %></h2>
+    <form id="upvote-question-form" method="post" action="/votes">
+      <input type="hidden" name="question" value="<%= @question.id %>" >
+      <input type="hidden" name="value" value="1" />
+      <input type="submit" name="upvote" value="Upvote" />
+    </form>
+    <form id="downvote-question-form" method="post" action="/votes">
+      <input type="hidden" name="question" value="<%= @question.id %>" >
+      <input type="hidden" name="value" value="-1" />
+      <input type="submit" name="downvote" value="Downvote" />
+    </form>
+    <h4>Comments for the answers</h4>
       <% answer.comments.all.each do |ans_comment| %>
         <%= ans_comment.body %>
+        <h2><%= vote_calculator(ans_comment) %></h2>
+        <form id="upvote-question-form" method="post" action="/votes">
+          <input type="hidden" name="question" value="<%= @question.id %>" >
+          <input type="hidden" name="value" value="1" />
+          <input type="submit" name="upvote" value="Upvote" />
+        </form>
+        <form id="downvote-question-form" method="post" action="/votes">
+          <input type="hidden" name="question" value="<%= @question.id %>" >
+          <input type="hidden" name="value" value="-1" />
+          <input type="submit" name="downvote" value="Downvote" />
+        </form>
       <% end %>
     <% if logged_in? %>
       <a class="answer-comment-link" href="#">Leave a comment for this answer!</a>

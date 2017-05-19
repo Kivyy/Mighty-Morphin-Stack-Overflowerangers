@@ -23,7 +23,6 @@ get '/questions/:id' do
   @question = Question.find(params[:id])
   @answers = @question.answers.all
   @comments = @question.comments.all
-  @question_votes = @question.votes.reduce(0) {|sum, vote| sum + vote.value}
 
   erb :'/questions/show'
 end

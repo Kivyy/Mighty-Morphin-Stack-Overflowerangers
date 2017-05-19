@@ -6,6 +6,7 @@ post '/comments' do
     answer.comments.create( body: params["body"], commenter: current_user)
   else
     question.comments.create( body: params["body"], commenter: current_user)
+    question.votes.create(value: 1, voter: current_user)
   end
   redirect "/questions/#{question.id}"
 end
