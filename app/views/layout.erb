@@ -18,11 +18,13 @@
           <% if logged_in? %>
           <ul>
             <li><a href="/users/<%= current_user.id %>">Profile</a></li>
+            <span>|</span>
             <li><a href="/logout">Logout</a></li>
           </ul>
           <% else %>
           <ul>
             <li><a href="/users/new">Register</a></li>
+            <span>|</span>
             <li><a href="/login">Login</a></li>
           </ul>
           <% end %>
