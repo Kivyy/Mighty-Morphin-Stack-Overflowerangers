@@ -31,12 +31,18 @@
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	bottom: 0;
-	display:;
+	display: flex;
 	justify-content: center;
 	padding: 20px 0;
 	position: fixed;
 	text-align: center;
+	transition: padding-bottom 0.5s ease;
 	width: 40%;
+}
+
+.question-wrapper:hover {
+	padding-bottom: 40px;
+	transition: padding-bottom 0.5s ease;
 }
 
 #post-question a {
