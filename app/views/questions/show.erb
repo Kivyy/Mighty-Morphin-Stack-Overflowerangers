@@ -1,1 +1,51 @@
-:)
+<div class="question-title-section">
+  <h1>Question: <%= @question.title %></h1>
+  <h4>Comments for the questions</h4>
+  <%@comments.each do |comment|%>
+  <p> <%= comment.body %></p>
+  <%end%>
+
+  <% if logged_in? %>
+    <a class="question-comment-link" href="#">Leave a comment for the question!</a>
+    <div style="display: none;" class="question-comment-form">
+      <form action="/comments" method="post">
+        <label for="response">Leave a comment:</label>
+        <input type="text" name="body" placeholder="type your comment here">
+        <input type="hidden" name="question" value="<%= @question.id %>" >
+        <input type="submit" value="submit">
+      </form>
+    </div>
+  <%end%>
+</div>
+
+<div class="answer-title-section">
+  <h1>Answers</h1>
+  <h4>Comments for the answers</h4>
+  <% @answers.each do |answer| %>
+    <p> <%= answer.response %> - <%= answer.answerer.username %> </p>
+      <% answer.comments.all.each do |ans_comment| %>
+        <%= ans_comment.body %>
+      <% end %>
+    <% if logged_in? %>
+      <a class="answer-comment-link" href="#">Leave a comment for this answer!</a>
+        <div style="display: none;" class="answer-comment-form">
+          <form action="/comments" method="post">
+            <label for="response">Leave a comment:</label>
+            <input type="text" name="body" placeholder="type your comment here">
+            <input type="hidden" name="answers" value="<%= answer.id %>" >
+            <input type="hidden" name="question" value="<%= @question.id %>" >
+            <input type="submit" value="submit">
+          </form>
+        </div>
+      <%end%>
+    <%end%>
+</div>
+
+<% if logged_in? %>
+  <form action="/answers" method="post">
+    <label for="response">Answer this question:</label>
+    <input type="text" name="response" placeholder="type your answer here">
+    <input type="hidden" name="question" value="<%= @question.id %>" >
+    <input type="submit" value="submit">
+  </form>
+<%end%>

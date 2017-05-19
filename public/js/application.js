@@ -1,7 +1,25 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $(".question-comment-link").on("click", function( event ) {
+    event.preventDefault();
+    $(".question-comment-form").css("display", "block");
+    $(this).hide();
+  });
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  $(".answer-comment-link").on("click", function( event ) {
+    event.preventDefault();
+    $(".answer-comment-form").css("display", "block");
+    $(this).hide();
+
+  });
+
+  // $(".question-comment-link").on("click", function() {
+  //   event.preventDefault();
+  //   var $link = $(this)
+  //   $.ajax({
+  //    method: 'get',
+  //    url: '/comments/new'
+  //   }).done(function(response){
+  //    $(".question-comment-link").parent().append(response);
+  //  });
+  // });
 });

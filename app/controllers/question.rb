@@ -20,5 +20,11 @@ end
 
 get '/questions/:id' do
   @question = Question.find(params[:id])
+  @answers = @question.answers.all
+  @comments = @question.comments.all
+  # if !@answers
+  #   @answer_comment = @answers.comments.all
+  #   binding.pry
+  # end
   erb :'/questions/show'
 end
