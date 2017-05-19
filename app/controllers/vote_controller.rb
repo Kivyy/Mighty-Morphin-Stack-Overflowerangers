@@ -22,9 +22,9 @@ post '/votes' do
       end
       new_vote.save
     elsif params[:answer]
-      comment = Comment.find(params["answer"].to_i)
-      question = Question.find(comment.commentable_id)
-      new_vote = comment.votes.new(value: params["value"].to_i, voter_id: current_user.id)
+      answer = Answer.find(params["answer"].to_i)
+      question = answer.question
+      new_vote = answer.votes.new(value: params["value"].to_i, voter_id: current_user.id)
       new_voter = new_vote.voter
       old_vote = Vote.find_by(voter: new_voter, voteable_type: new_vote.voteable_type, voteable_id: new_vote.voteable_id)
 
