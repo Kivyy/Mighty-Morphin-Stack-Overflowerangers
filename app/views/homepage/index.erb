@@ -1,11 +1,17 @@
-<% @questions.each do |question|%>
-  <ul>
-    <a href="/questions/<%= question.id %>"><li><%= question.title %></li></a>
-      <p><%= question.questioner.username %></p>
-  </ul>
-<% end %>
-
-
-<% if logged_in? %>
-  <a href='/questions/new'>Post a question!</a>
-<%end%>
+<div class="homepage-wrapper">
+	<% @questions.each do |question|%>
+	<ul>
+		<a href="/questions/<%= question.id %>"><li><%= question.title %></li></a>
+		<p><%= question.questioner.username %></p>
+	</ul>
+	<% end %>
+</div>
+<div class="question-section">
+	<div class="question-wrapper">
+		<% if logged_in? %>
+		<div id="post-question">
+			<a href='/questions/new'>Post a question!</a>
+		</div>
+		<%end%>
+	</div>
+</div>
