@@ -1,0 +1,52 @@
+.form-section {
+	display: flex;
+	justify-content: center;
+}
+
+.form-wrapper {
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 30px;
+	width: 40%
+}
+
+.form-wrapper h2 {
+	font-size: 35px;
+	text-align: center;
+	margin: 0;
+}
+
+form {
+	display: table;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.form-fields {
+	margin: 5px 0 15px 0;
+	width: 100%;
+}
+
+.submit-button {
+	background-color: #D78521;
+	border-radius: 10px;
+	border: 2px #fff solid;
+	color: #fff;
+	display: table;
+	font-family: 'Teko', sans-serif;
+	font-size: 25px;
+	margin: 0 auto;
+	padding: 15px;
+	transition: background-color 0.5s ease;
+	width: 100%;
+}
+
+.submit-button:hover {
+	background-color: #fff;
+	border: 2px #D78521 solid;
+	color: #D78521;
+	transition: background-color 0.5s ease;
+}
+
+.submit-button, .submit-button:hover {
+}

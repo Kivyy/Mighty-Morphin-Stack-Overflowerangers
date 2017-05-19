@@ -1,0 +1,46 @@
+body {
+	background-color: #E8EBF7;
+}
+
+h1, h2, h3 {
+	font-family: 'Teko', sans-serif;
+}
+
+p, ul, li, a, label {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#layout-container {
+	margin: 0 10%;
+}
+
+header {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+}
+
+header a {
+	text-decoration: none;
+}
+
+#title a {
+	color: #C84630;
+	font-family: 'Teko', sans-serif;
+	font-size: 25px;
+}
+
+#header-links li {
+	display: inline;
+	font-family: 'Montserrat', sans-serif;
+	list-style-type: none;
+}
+
+#header-links li a {
+	color: #D78521;
+	font-size: 20px;
+}
+
+#header-links span {
+	margin: 0 20px;
+}
