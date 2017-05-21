@@ -1,12 +1,18 @@
 .homepage-wrapper {
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: center;
+	padding-bottom: 60px;
+	width: 100%;
 }
 
 .homepage-wrapper ul {
 	background-color: white;
 	border-radius: 10px;
-	width: 100%;
+	margin: 20px;
+	padding: 20px;
+	width: 30%;
 }
 
 .homepage-wrapper li {
