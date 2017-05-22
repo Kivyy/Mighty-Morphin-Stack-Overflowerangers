@@ -10,6 +10,6 @@
 <h3>These are all the answers you have posted</h3>
 <ul>
   <% @user.answers.each do |answer| %>
-    <li><%= answer %> </li>
+    <li><%= answer.response %> </li>
   <%end%>
 </ul>
